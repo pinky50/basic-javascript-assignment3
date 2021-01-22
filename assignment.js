@@ -57,7 +57,7 @@ function hotelCost(stayDays) {
         totalHotelCost = first10DaysCost + second11To20daysCost;
     }
 
-    else if (stayDays > 20) { //if parameter more than 20 days
+    else if (stayDays > 20) { //if parameter is more than 20 days
         var first10DaysCost = 10 * 100;
         var second11To20daysCost = 10 * 80;
         var remainingDays = stayDays - 20;
