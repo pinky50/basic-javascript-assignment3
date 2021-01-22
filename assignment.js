@@ -2,105 +2,99 @@
 
 // kilometer to meter convertor function
 
-function kilometerToMeter(kilometerAsInput){
+function kilometerToMeter(kilometerAsInput) {
 
-    if(kilometerAsInput > 0){
+    if (kilometerAsInput > 0) {
         var output = kilometerAsInput * 1000;
         return output;
     }
 
-    else if(kilometerAsInput < 0){
-        return("Distance can not negative.");
+    else if (kilometerAsInput < 0) { //if parameter value is negative
+        return ("Distance can not be negative."); 
     }
-    
-}
 
-var result = kilometerToMeter(-2);
-console.log(result);
+    else if (isNaN(kilometerAsInput)) { //if parameter value is not a number like string
+        return ("kilometerAsInput is not a number"); 
+    }
+
+}
 
 // budget calculator function
 
-function budgetCalculator(watchNumber, phoneNumber, laptopNumber){
+function budgetCalculator(watchNumber, phoneNumber, laptopNumber) {
 
-    var perWatchPrice = 50;
-    var perPhonePrice = 100; 
-    var perLaptopPrice = 500;
+    var perWatchPrice = 50; //per watch price
+    var perPhonePrice = 100; //per phone price
+    var perLaptopPrice = 500; //per laptop price
 
-    if(watchNumber < 0 || phoneNumber < 0 || laptopNumber< 0 ){
-        return"Number can not be negative "
-    }
     var totalWatchPrice = watchNumber * perWatchPrice;
     var totalPhonePrice = phoneNumber * perPhonePrice;
     var totalLaptopPrice = laptopNumber * perLaptopPrice;
     var totalPrice = totalWatchPrice + totalPhonePrice + totalLaptopPrice;
+        
     return totalPrice;
 
 }
 
-var total = budgetCalculator(7,0,8);
-console.log(total);
-
 // hotel cost function
 
-
-function hotelCost(stayDays){
+function hotelCost(stayDays) {
 
     var totalHotelCost = 0;
-    
-    // for negative input
-    if (stayDays < 0) {
-            return('Days can not be negative');
+
+    if (stayDays < 0) { //if parameter is a negative value
+        return ('Days can not be negative');
     }
 
-    else if (stayDays <= 10) { 
+    else if (stayDays <= 10) { //if parameter is  1 to 10 days
         totalHotelCost = stayDays * 100;
-    } 
+    }
 
-    else if (stayDays <= 20) { 
+    else if (stayDays <= 20) { //if parameter is  11 to 20 days
         var first10DaysCost = 10 * 100;
         var remainingDays = stayDays - 10;
         var second11To20daysCost = remainingDays * 80;
         totalHotelCost = first10DaysCost + second11To20daysCost;
-    } 
-     
-    else if (stayDays > 20) { 
-        var first10DaysCost = 10 * 100;  
+    }
+
+    else if (stayDays > 20) { //if staydays are more than 20 days
+        var first10DaysCost = 10 * 100;
         var second11To20daysCost = 10 * 80;
         var remainingDays = stayDays - 20;
         var moreThan20DaysCost = remainingDays * 50;
         totalHotelCost = first10DaysCost + second11To20daysCost + moreThan20DaysCost;
     }
 
-    // for string input
-    else if (isNaN(stayDays) ) {
-        return('stayDays is not a number');
+    else if (isNaN(stayDays)) { //if parameter is not a number like string
+        return ('stayDays is not a number');
     }
-    
+
     return totalHotelCost;
 }
 
-var result = hotelCost(18);
-console.log(result);
-
 // largest element in a array
 
-function megaFriend(friendName){
-  
+function megaFriend(friendsName) {
+
     var initialValue = 0;
-    
-    for (var i = 0; i < friendName.length; i++) {
-        var friendNameLength = friendName[i].length;
-      if ( friendNameLength > initialValue) {
-        var initialValue = friendName[i].length;
-        var longestName = friendName[i];
-      } 
-      else if(friendName.length <= 0){
-        return"There is no element";
-      }
+
+    for (var i = 0; i < friendsName.length; i++) {
+
+        var friendNameLength = friendsName[i].length;
+
+        if (friendNameLength > initialValue) {
+            var initialValue = friendsName[i].length;
+            var longestName = friendsName[i];
+        }
+
+        else if (friendsName < 0) {
+            return "There is no element";
+        }
     }
+
     return longestName;
-  }
-  
-  var arr = megaFriend([]);
-    
-  console.log(arr);
+}
+
+var arr = megaFriend([]);
+
+console.log(arr);
