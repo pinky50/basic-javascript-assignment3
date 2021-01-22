@@ -83,18 +83,15 @@ function megaFriend(friendsName) {
         var friendNameLength = friendsName[i].length;
 
         if (friendNameLength > initialValue) {
-            var initialValue = friendsName[i].length;
+            var initialValue = friendNameLength;
             var longestName = friendsName[i];
         }
 
-        else if (friendsName < 0) {
-            return "There is no element";
+        else if (friendsName == null) { //if parameter is empty
+            return "There is no elements";
         }
     }
 
     return longestName;
 }
 
-var arr = megaFriend([]);
-
-console.log(arr);
